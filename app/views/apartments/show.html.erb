@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="card col-4 mb-5 p-5" >
+  
+  <div class="card-body">
+    <h5 class="card-title mb-5">Departamento: <%= @apartment.numero %></h5>
+    <p class="card-text">Edificio: <%= @apartment.building.nombre %></p>
+    <p class="card-text">Id Edificio: <%= @apartment.building_id %></p>
+   
+  </div>
+</div>
+
+<div>
+  
+  <%= link_to "Volver a Departamentos", apartments_path, class: "btn btn-dark" %>
+
+ 
+</div>

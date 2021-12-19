@@ -1,0 +1,29 @@
+<%= form_with(model: apartment) do |form| %>
+  <% if apartment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
+
+      <ul>
+        <% apartment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card mb-5 p-5 col-5">
+  <div>
+    <%= form.label :numero, "Número", style: "display: block", class: "form-label" %>
+    <%= form.text_field :numero, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :building_id, "Edificio", style: "display: block", class: "form-label mt-3" %>
+    <%= form.select(:building_id, options_from_collection_for_select(@buildings, :id, :nombre), {include_blank: "Elija un Edificio..."}, {class: "form-select"})     %>
+  </div>
+
+  <div>
+    <%= form.submit "Enviar", class: "btn btn-dark mt-5" %>
+  </div>
+  </div>
+<% end %>

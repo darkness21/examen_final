@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="mb-5">Departamentos</h1>
+
+<table class="table mb-5">
+    <thead>
+      <tr>
+        <th class="text-center">Número</th>
+        <th class="text-center">Edificio</th>
+        <th class="text-center">Id Edificio</th>
+        <th class="text-center">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+
+  <% @apartments.each do |apt| %>
+    <tr>
+    <td class="text-center"><%= apt.numero %></td>
+    <td class="text-center"><%= apt.building.nombre %></td>
+    <td class="text-center"><%= apt.building_id %></td>
+    <td class="text-center">
+      <%= link_to "Detalles", apt, class: "btn btn-dark btn-sm" %>
+    </td>
+    </tr>
+  <% end %>
+
+    </tbody>
+</table>
+
+
+<%= link_to "Crear Departamentos", new_apartment_path, class: "btn btn-dark"%>
+<%= link_to "Ir a Edificios", buildings_path, class: "btn btn-dark" %>

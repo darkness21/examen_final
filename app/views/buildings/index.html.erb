@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="mb-5">Edificios</h1>
+
+<table class="table mb-5">
+    <thead>
+      <tr>
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Direccion</th>
+        <th class="text-center">Ciudad</th>
+        <th class="text-center">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+
+  <% @buildings.each do |building| %>
+    <tr>
+    <td class="text-center"><%= building.nombre %></td>
+    <td class="text-center"><%= building.direccion %></td>
+    <td class="text-center"><%= building.ciudad %></td>
+    <td class="text-center">
+      <%= link_to "Detalles", building, class: "btn btn-dark btn-sm" %>
+    </td>
+    </tr>
+  <% end %>
+
+    </tbody>
+</table>
+<%= link_to "Crear Edificio", new_building_path, class: "btn btn-dark" %>
+<%= link_to "Ir a Departamentos", apartments_path, class: "btn btn-dark" %>
